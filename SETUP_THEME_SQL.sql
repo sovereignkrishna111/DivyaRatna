@@ -1,0 +1,115 @@
+-- SQL Code to Initialize Theme with Proper Default Colors
+-- Paste this into Supabase SQL Editor
+
+INSERT INTO public.site_theme (id, colors, color_mode)
+VALUES (
+  1,
+  jsonb_build_object(
+    -- PRIMARY COLORS (Maroons/Main Brand Colors)
+    'primary-50', '#fef2f2',
+    'primary-100', '#fee2e2',
+    'primary-200', '#fecaca',
+    'primary-300', '#fca5a5',
+    'primary-400', '#f87171',
+    'primary-500', '#ef4444',
+    'primary-600', '#dc2626',
+    'primary-700', '#b91c1c',
+    'primary-800', '#991b1b',
+    'primary-900', '#7f1d1d',
+    
+    -- SECONDARY COLORS (Dark Maroon Variants)
+    'secondary-50', '#faf5f5',
+    'secondary-100', '#f5ebeb',
+    'secondary-200', '#e8d5d5',
+    'secondary-300', '#d4a5a5',
+    'secondary-400', '#b87c7c',
+    'secondary-5900', '#a85555',
+    'secondary-600', '#8b3b3b',
+    'secondary-700', '#6b2c2c',
+    'secondary-800', '#522020',
+    'secondary-900', '#3d1616',
+    
+    -- ACCENT COLORS (Gold/Amber)
+    'accent-50', '#fffbeb',
+    'accent-100', '#fef3c7',
+    'accent-200', '#fde68a',
+    'accent-300', '#fcd34d',
+    'accent-400', '#fbbf24',
+    'accent-500', '#f59e0b',
+    'accent-600', '#d97706',
+    'accent-700', '#b45309',
+    'accent-800', '#92400e',
+    'accent-900', '#78350f',
+    
+    -- BACKGROUND COLORS
+    'background-primary', '#ffffff',
+    'background-secondary', '#f9fafb',
+    'background-tertiary', '#f3f4f6',
+    'background-subtle', '#efefef',
+    'background-dark', '#1f2937',
+    
+    -- TEXT COLORS
+    'text-primary', '#111827',
+    'text-secondary', '#374151',
+    'text-tertiary', '#6b7280',
+    'text-light', '#9ca3af',
+    'text-inverse', '#ffffff',
+    'text-muted', '#d1d5db',
+    
+    -- BUTTON COLORS
+    'button-primary-bg', '#991b1b',
+    'button-primary-bg-hover', '#7f1d1d',
+    'button-primary-text', '#ffffff',
+    'button-secondary-bg', '#7f1d1d',
+    'button-secondary-bg-hover', '#6b1515',
+    'button-secondary-text', '#ffffff',
+    'button-success-bg', '#10b981',
+    'button-success-hover', '#059669',
+    'button-danger-bg', '#ef4444',
+    'button-danger-hover', '#dc2626',
+    'button-warning-bg', '#f59e0b',
+    'button-warning-hover', '#d97706',
+    'button-outline-border', '#e5e7eb',
+    'button-outline-text', '#111827',
+    
+    -- BORDER COLORS
+    'border-light', '#f3f4f6',
+    'border-default', '#e5e7eb',
+    'border-medium', '#d1d5db',
+    'border-dark', '#9ca3af',
+    'border-primary', '#991b1b',
+    'border-accent', '#f59e0b',
+    
+    -- STATUS COLORS
+    'success-light', '#d1fae5',
+    'success-main', '#10b981',
+    'success-dark', '#047857',
+    'warning-light', '#fef3c7',
+    'warning-main', '#f59e0b',
+    'warning-dark', '#d97706',
+    'error-light', '#fee2e2',
+    'error-main', '#ef4444',
+    'error-dark', '#dc2626',
+    'info-light', '#dbeafe',
+    'info-main', '#3b82f6',
+    'info-dark', '#1d4ed8',
+    
+    -- HOVER & INTERACTION STATES
+    'hover-overlay', '#00000010',
+    'focus-ring', '#3b82f6',
+    'shadow-color', '#00000015',
+    
+    -- GRADIENT COLORS
+    'gradient-start', '#991b1b',
+    'gradient-end', '#7f1d1d',
+    'gradient-accent-start', '#f59e0b',
+    'gradient-accent-end', '#d97706'
+  ),
+  'light'
+)
+ON CONFLICT (id) DO UPDATE SET
+  colors = EXCLUDED.colors,
+  color_mode = EXCLUDED.color_mode;
+
+-- Verify the colors were inserted
+SELECT colors FROM public.site_theme WHERE id = 1;
