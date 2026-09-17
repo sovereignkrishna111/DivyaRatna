@@ -155,11 +155,12 @@ const Navigation: React.FC = () => {
                 <Link 
                   to={item.path}
                   style={{
-                    color: location.pathname === item.path ? 'var(--color-primary-800)' : 'var(--color-text-primary)'
+                    color: location.pathname === item.path ? 'var(--color-primary-800)' : 'var(--color-text-primary)',
+                    fontWeight: 600
                   }}
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'}
                   onMouseLeave={(e) => e.currentTarget.style.color = location.pathname === item.path ? 'var(--color-primary-800)' : 'var(--color-text-primary)'}
-                  className="flex items-center transition-colors font-medium text-sm">
+                  className="flex items-center transition-colors text-sm">
                   {item.title}
                   {item.items.length > 0 && (
                     <ChevronDown 

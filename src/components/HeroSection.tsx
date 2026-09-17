@@ -143,15 +143,17 @@ const HeroSection: React.FC = () => {
               decoding="async"
               fetchPriority={index === 0 ? 'high' : 'auto'}
             />
-            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div className="absolute inset-0 bg-black/20"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,transparent_40%,rgba(0,0,0,0.18)_70%,rgba(0,0,0,0.28)_100%)]"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.18)_0%,rgba(0,0,0,0.08)_22%,rgba(0,0,0,0.02)_50%,rgba(0,0,0,0.08)_78%,rgba(0,0,0,0.18)_100%)]"></div>
             <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
               <div className="max-w-5xl mx-auto px-6">
                 {index === currentSlide && (
                   <>
-                    <Reveal as="h1" variant="up" durationMs={650} className="text-3xl md:text-5xl lg:text-6xl font-light mb-6 leading-tight tracking-wide">
+                    <Reveal as="h1" variant="up" durationMs={650} className="site-hero-heading text-3xl md:text-5xl lg:text-[4.5rem] font-medium mb-6 leading-[0.9] tracking-[-0.035em]">
                       {slide.title}
                     </Reveal>
-                    <Reveal as="p" variant="up" delayMs={120} durationMs={650} className="text-lg md:text-xl lg:text-2xl mb-12 max-w-4xl mx-auto font-light leading-relaxed">
+                    <Reveal as="p" variant="up" delayMs={120} durationMs={650} className="text-lg md:text-xl lg:text-2xl mb-12 max-w-4xl mx-auto font-light leading-relaxed text-white/95">
                       {slide.subtitle}
                     </Reveal>
                   </>

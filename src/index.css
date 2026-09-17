@@ -1,9 +1,8 @@
+@import './animations.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import smooth animations for entire website */
-@import './animations.css';
 
 :root {
   /* Legacy brand colors - maintained for backward compatibility */
@@ -120,6 +119,13 @@ body {
 }
 
 @layer base {
+  .site-hero-heading {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    font-weight: 450;
+    letter-spacing: -0.03em;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+  }
+
   a,
   button,
   [role='button'],
